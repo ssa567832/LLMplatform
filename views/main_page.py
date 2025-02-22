@@ -24,19 +24,4 @@ class MainPage:
         Sidebar(chat_session_data).display()
         MainContent(chat_session_data).display()
 
-        # 處理聊天輸入
-        if query := st.chat_input():
-            st.chat_message("human").write(query)
-            try:
-                response, chat_session_data = LLMService(chat_session_data).query(query)
-                st.chat_message("ai").write(response)
-            except Exception as e:
-                st.error(f"An error occurred while processing your request: {e}")
 
-
-# def main():
-#     """主函數"""
-#     MainPage().show()
-#
-# if __name__ == "__main__":
-#     main()
