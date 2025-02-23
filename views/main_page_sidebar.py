@@ -160,8 +160,3 @@ class Sidebar:
             self.chat_session_data = self._controller.reset_session_state_to_defaults()
         st.rerun()  # 重新執行應用程式
 
-    def _create_selectbox(self, label, key, options):
-        """建立選擇框並更新 session state"""
-        selected_value = self.chat_session_data.get(key, options[0])
-        selected_index = options.index(selected_value)
-        self.chat_session_data[key] = st.selectbox(label, options, index=selected_index)  # 根據選擇框選擇的值更新 session state
